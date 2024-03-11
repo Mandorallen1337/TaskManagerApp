@@ -68,6 +68,7 @@ namespace TaskManagerApp
                 {
                 tasks.RemoveAt(listBoxTasks.SelectedIndex);
                 UpdateListBox();
+
             }
         }
 
