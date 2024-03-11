@@ -36,16 +36,18 @@
             // 
             // listBoxTasks
             // 
+            this.listBoxTasks.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.listBoxTasks.FormattingEnabled = true;
-            this.listBoxTasks.Location = new System.Drawing.Point(882, 146);
+            this.listBoxTasks.ItemHeight = 16;
+            this.listBoxTasks.Location = new System.Drawing.Point(828, 16);
             this.listBoxTasks.Name = "listBoxTasks";
-            this.listBoxTasks.Size = new System.Drawing.Size(363, 433);
+            this.listBoxTasks.Size = new System.Drawing.Size(567, 708);
             this.listBoxTasks.TabIndex = 0;
             // 
             // addButton
             // 
             this.addButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.addButton.Location = new System.Drawing.Point(665, 146);
+            this.addButton.Location = new System.Drawing.Point(666, 16);
             this.addButton.Name = "addButton";
             this.addButton.Size = new System.Drawing.Size(145, 37);
             this.addButton.TabIndex = 1;
@@ -56,7 +58,7 @@
             // removeButton
             // 
             this.removeButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.removeButton.Location = new System.Drawing.Point(665, 206);
+            this.removeButton.Location = new System.Drawing.Point(666, 76);
             this.removeButton.Name = "removeButton";
             this.removeButton.Size = new System.Drawing.Size(145, 37);
             this.removeButton.TabIndex = 1;
@@ -67,7 +69,7 @@
             // completeButton
             // 
             this.completeButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.completeButton.Location = new System.Drawing.Point(665, 270);
+            this.completeButton.Location = new System.Drawing.Point(666, 140);
             this.completeButton.Name = "completeButton";
             this.completeButton.Size = new System.Drawing.Size(145, 37);
             this.completeButton.TabIndex = 1;

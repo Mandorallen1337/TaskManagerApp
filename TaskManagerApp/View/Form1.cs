@@ -22,27 +22,24 @@ namespace TaskManagerApp
         public Form1()
         {
             InitializeComponent();
-            tasks = new List<Task>();
+
             taskManager = new TaskManager();
             taskManager.AddObserver(this);
 
-            tasks.Add(new Task("Gör läxor", DateTime.Today, TaskPriority.High));
-            tasks.Add(new Task("Träna", DateTime.Today.AddDays(1), TaskPriority.Medium));
-            tasks.Add(new Task("Köp mjölk", DateTime.Today.AddDays(2), TaskPriority.Low));
-
-            addTaskCommand = new AddTaskCommand(taskManager, new Task("Gör läxor", DateTime.Today, TaskPriority.High));
+            AddInitialTasks();
 
             UpdateListBox();
-
         }
 
         private void UpdateListBox()
         {
             listBoxTasks.Items.Clear();
-            foreach (var task in tasks)
+            tasks = taskManager.GetTasks();
+            foreach (Task task in tasks)
             {
                 listBoxTasks.Items.Add(task);
             }
+                                        
         }
 
         private void addButton_Click(object sender, EventArgs e)
@@ -52,24 +49,26 @@ namespace TaskManagerApp
                 if (addTaskForm.ShowDialog() == DialogResult.OK)
                 {
                     Task newTask = addTaskForm.GetNewTask();
-                    tasks.Add(newTask);
-                    addTaskCommand.Execute(newTask);
+                    addTaskCommand = new AddTaskCommand(taskManager, newTask);
+                    addTaskCommand.Execute();
                     UpdateListBox();
+                    
                 }
-                
-                
             }
+            
         }
 
 
         private void removeButton_Click(object sender, EventArgs e)
         {
             if (listBoxTasks.SelectedIndex != -1)
-                {
-                tasks.RemoveAt(listBoxTasks.SelectedIndex);
+            {
+                Task taskToRemove = tasks[listBoxTasks.SelectedIndex];
+                RemoveTaskCommand removeTaskCommand = new RemoveTaskCommand(taskToRemove, taskManager);
+                removeTaskCommand.Execute();
                 UpdateListBox();
-
             }
+            
         }
 
         public void UpdateTask(List<Task> tasks)
@@ -86,5 +85,31 @@ namespace TaskManagerApp
             }
             
         }
+
+        private void AddInitialTasks()
+        {
+            // Skapa en lista av uppgifter som ska läggas till
+            List<Task> initialTasks = new List<Task>
+    {
+             new Task("Gör Läxor", DateTime.Now, TaskPriority.High),
+             new Task("Städa köket", DateTime.Now, TaskPriority.Low),
+             new Task("Börja koda", DateTime.Now, TaskPriority.Medium),
+             new Task("Gå ut med hunden", DateTime.Now.AddDays(1), TaskPriority.Low),
+             new Task("Träna", DateTime.Now.AddDays(1), TaskPriority.Medium),
+             new Task("Handla mat", DateTime.Now.AddDays(2), TaskPriority.High),
+             new Task("Läs en bok", DateTime.Now.AddDays(3), TaskPriority.Medium),
+             new Task("Ring mamma", DateTime.Now.AddDays(4), TaskPriority.Low),
+             new Task("Skriv rapport", DateTime.Now.AddDays(5), TaskPriority.High),
+             new Task("Planera semester", DateTime.Now.AddDays(7), TaskPriority.Medium)
+    };
+
+            // Skapa en instans av AddTaskCommand för varje uppgift och lägg till den i TaskManager
+            foreach (Task task in initialTasks)
+            {
+                AddTaskCommand addTaskCommand = new AddTaskCommand(taskManager, task);
+                addTaskCommand.Execute();
+            }
+        }
     }
+
 }

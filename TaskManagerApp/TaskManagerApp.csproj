@@ -47,6 +47,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Controller\AddTaskCommand.cs" />
+    <Compile Include="Controller\RemoveTaskCommand.cs" />
     <Compile Include="Controller\TaskController.cs" />
     <Compile Include="Interfaces\ICommand.cs" />
     <Compile Include="Interfaces\ITaskObserver.cs" />

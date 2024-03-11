@@ -8,6 +8,6 @@ namespace TaskManagerApp.Interfaces
 {
     public interface ICommand
     {
-        void Execute(Task task);
+        void Execute();
     }
 }

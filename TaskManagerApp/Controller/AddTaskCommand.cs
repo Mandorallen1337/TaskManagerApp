@@ -12,13 +12,21 @@ namespace TaskManagerApp.Controller
     {
         private TaskManager taskManager;
         private Task taskToAdd;
+        
+
+        public AddTaskCommand(Task task, TaskManager taskManager)
+        {            
+            this.taskToAdd = task;
+            this.taskManager = taskManager; 
+        }
 
         public AddTaskCommand(TaskManager taskManager, Task task)
         {
             this.taskManager = taskManager;
             this.taskToAdd = task;
         }
-        public void Execute(Task task)
+
+        public void Execute()
         {
             taskManager.AddTask(taskToAdd);
         }

@@ -39,5 +39,14 @@ namespace TaskManagerApp.Model
             tasks.Add(task);
             NotifyObservers();
         }
+        public void RemoveTask(Task task)
+        {
+            tasks.Remove(task);
+            NotifyObservers();
+        }
+        public List<Task> GetTasks()
+        {
+            return tasks;
+        }
     }
 }
