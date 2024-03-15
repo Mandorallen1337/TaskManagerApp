@@ -25,13 +25,10 @@ namespace TaskManagerApp
         {
             InitializeComponent();            
             sortStrategy = new QuickSortStrategy();
-            taskManager = new TaskManager(sortStrategy);
-            //caretaker = new TaskManagerCaretaker();
-            taskManager.AddObserver(this);
-            
+            taskManager = new TaskManager(sortStrategy);            
+            taskManager.AddObserver(this);            
 
             AddInitialTasks();
-
         }
 
 

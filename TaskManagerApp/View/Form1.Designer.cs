@@ -40,13 +40,13 @@
             // listBoxTasks
             // 
             this.listBoxTasks.BackColor = System.Drawing.SystemColors.HotTrack;
-            this.listBoxTasks.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.listBoxTasks.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.listBoxTasks.ForeColor = System.Drawing.Color.White;
             this.listBoxTasks.FormattingEnabled = true;
-            this.listBoxTasks.ItemHeight = 16;
+            this.listBoxTasks.ItemHeight = 20;
             this.listBoxTasks.Location = new System.Drawing.Point(483, 12);
             this.listBoxTasks.Name = "listBoxTasks";
-            this.listBoxTasks.Size = new System.Drawing.Size(567, 708);
+            this.listBoxTasks.Size = new System.Drawing.Size(646, 704);
             this.listBoxTasks.TabIndex = 0;
             // 
             // addButton
