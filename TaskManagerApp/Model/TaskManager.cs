@@ -11,11 +11,28 @@ namespace TaskManagerApp.Model
     {
         private List<ITaskObserver> observers;
         private List<Task> tasks;
+        private ISortStrategy sortStrategy;
 
-        public TaskManager()
+        public TaskManager(ISortStrategy sortStrategy)
         {
             observers = new List<ITaskObserver>();
             tasks = new List<Task>();
+            this.sortStrategy = sortStrategy;
+
+        }
+        public void SetSortStrategy(ISortStrategy newStrategy)
+        {
+            sortStrategy = newStrategy;
+        }
+        public TaskManagerMemento CreateMemento()
+        {
+            return new TaskManagerMemento(tasks);
+        }
+
+        public void SetMemento(TaskManagerMemento memento)
+        {
+            tasks = memento.Tasks;
+            NotifyObservers();
         }
         public void AddObserver(ITaskObserver observer)
         {
@@ -47,6 +64,11 @@ namespace TaskManagerApp.Model
         public List<Task> GetTasks()
         {
             return tasks;
+        }
+        public void SortTasks()
+        {
+            sortStrategy.Sort(tasks);
+            NotifyObservers();
         }
     }
 }

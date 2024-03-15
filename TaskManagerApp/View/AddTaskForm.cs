@@ -7,19 +7,23 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using TaskManagerApp.Controller;
+using TaskManagerApp.Interfaces;
 using TaskManagerApp.Model;
 
 namespace TaskManagerApp.View
 {
     public partial class AddTaskForm : Form
     {
-        private TaskManager taskManager = new TaskManager();
+        private ISortStrategy sortStrategy;
+        private TaskManager taskManager;
         public AddTaskForm()
         {
             InitializeComponent();
-
-            // Fyll ComboBox med värden från TaskPriority enum
-            comboBoxPriority.DataSource = Enum.GetValues(typeof(TaskPriority));            
+            
+            comboBoxPriority.DataSource = Enum.GetValues(typeof(TaskPriority)); 
+            sortStrategy = new QuickSortStrategy();
+            taskManager = new TaskManager(sortStrategy);
 
         }
 

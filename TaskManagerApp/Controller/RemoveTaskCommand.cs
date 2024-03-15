@@ -12,15 +12,24 @@ namespace TaskManagerApp.Controller
     {
         private TaskManager taskManager;
         private Task taskToRemove;
+        private TaskManagerMemento previousState;
+        private TaskManagerCaretaker caretaker;
 
-        public RemoveTaskCommand(Task task, TaskManager taskManager)
+        public RemoveTaskCommand(Task task, TaskManager taskManager, TaskManagerCaretaker taskManagerCaretaker)
         {
             this.taskManager = taskManager;
             this.taskToRemove = task;            
+            caretaker = taskManagerCaretaker;
         }
         public void Execute()
-        {            
+        {
+            previousState = taskManager.CreateMemento();
             taskManager.RemoveTask(taskToRemove);
+            caretaker.SaveMemento(taskManager.CreateMemento());
+        }
+        public void Undo()
+        {
+            taskManager.SetMemento(previousState);
         }
     }
 }

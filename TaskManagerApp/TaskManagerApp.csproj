@@ -47,12 +47,16 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Controller\AddTaskCommand.cs" />
+    <Compile Include="Controller\BubbleSortStrategy.cs" />
+    <Compile Include="Controller\QuickSortStrategy.cs" />
     <Compile Include="Controller\RemoveTaskCommand.cs" />
-    <Compile Include="Controller\TaskController.cs" />
     <Compile Include="Interfaces\ICommand.cs" />
+    <Compile Include="Interfaces\ISortStrategy.cs" />
     <Compile Include="Interfaces\ITaskObserver.cs" />
     <Compile Include="Interfaces\ITaskSubject.cs" />
     <Compile Include="Model\TaskManager.cs" />
+    <Compile Include="Model\TaskManagerCaretaker.cs" />
+    <Compile Include="Model\TaskManagerMemento.cs" />
     <Compile Include="View\AddTaskForm.cs">
       <SubType>Form</SubType>
     </Compile>

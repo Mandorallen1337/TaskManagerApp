@@ -4,9 +4,10 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace TaskManagerApp.Controller
+namespace TaskManagerApp.Interfaces
 {
-    public class TaskController
+    public interface ISortStrategy
     {
+        void Sort(List<Task> tasks);
     }
 }
